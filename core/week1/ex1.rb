@@ -11,11 +11,11 @@ y = false
 z = true
 x = y or z
 puts x
-# x = false, the assignment operator takes precedence over the 'or' operation
+# x = false, the assignment operator takes precedence over the 'or' operator
 
 (x = y) or z
 puts x
-# x = false, the parentheses take precedence over the 'or' operation
+# x = false, the parentheses take precedence over the 'or' operator
 # the same to ((x = y) or z)
 
 x = (y or z)
