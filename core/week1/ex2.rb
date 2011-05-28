@@ -7,6 +7,6 @@
 puts "%05d" % 123
 # Resutl: 00123
 
-0 = pad with zeros
-5 = the number of zeros to pad to
-d = convert argument as a decimal number
+# 0 = pad with zeros
+# 5 = the number of zeros to pad to
+# d = convert argument as a decimal number
