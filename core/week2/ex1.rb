@@ -22,3 +22,6 @@ s.lines.inject(1) { |line_number, text| puts "Line #{line_number}: #{text}"; lin
 
 # Or
 s.split("\n").each_with_index { |text, line_number| puts "Line #{line_number.next}: #{text}" }
+
+# Or
+s.each_line.with_index(1) { |text, line_number| puts "Line #{line_number}: #{text}" }
