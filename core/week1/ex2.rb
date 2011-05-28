@@ -5,7 +5,7 @@
 =end
 
 puts "%05d" % 123
-# Resutl: 00123
+# Result: 00123
 
 # 0 = pad with zeros
 # 5 = the number of zeros to pad to
