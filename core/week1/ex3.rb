@@ -19,4 +19,4 @@ def seconds_to_years(seconds)
 end
 
 puts seconds_to_years(979000000)
-# Resutl: 31.04
+# Result: 31.04
