@@ -1,0 +1,23 @@
+THIMK
+b. What happens in the following Ruby code?
+  
+x = 10
+y = 20
+x, y = y, x
+puts x
+puts y
+
+======
+
+The result is that it exchange sequence values.
+If you look into the returned class, it is an array.
+
+(x, y = y, x).class
+# Result: Array
+
+The equal sign = method transforms y,x to [y,x] that's why we get the array class, Then it assigns values in elements array as subsequence to variables.
+
+If you look the code below, x = [20, 10] which is an array class.
+
+x = y, x
+# Result: x = [20, 10]
