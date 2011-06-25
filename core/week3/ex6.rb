@@ -26,3 +26,9 @@ end
 while (input = prompt('You enter: ')) != 'BYE'
   puts reply_message(input)
 end
+
+=begin
+  Random between 1930 and 1950:
+  # Random.new.rand(1930..1950)
+  Or # 1930 + rand( 21)
+=end
