@@ -27,11 +27,8 @@ class GameBoard
     puts guess_in_location_cells? ? hit_guess_number : miss_guess_number
     
     if hit_all_location_cells?
-      puts "Miss guess: #{@no_of_miss} and hit guess: #{@no_of_hits} of #{total_guesses} guesses."
       puts "End"
       return "kill"
-    else  
-      
     end
   end
   
