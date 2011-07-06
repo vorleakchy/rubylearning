@@ -6,8 +6,6 @@
 =end
 
 class MP3Info
-  attr_reader :header, :title, :artist, :album, :year, :comment, :track, :genre
-
   TAGS = {
     :header => 3,
     :title => 30,
@@ -18,6 +16,8 @@ class MP3Info
     :track => 2,
     :genre => 1
   }
+
+  TAGS.each_key { |field| attr_reader field }
   
   def initialize(file_name)  
     @file_name = file_name
@@ -30,24 +30,18 @@ class MP3Info
     File.open(@file_name, 'rb') do |f|
       f.seek(-128, IO::SEEK_END)
 
-      @header = f.read(TAGS[:header]).strip
-      @title = f.read(TAGS[:title]).strip
-      @artist = f.read(TAGS[:artist]).strip
-      @album = f.read(TAGS[:album]).strip
-      @year = f.read(TAGS[:year]).strip
-      @comment = f.read(TAGS[:comment]).strip
-      @track = f.read(TAGS[:track]).strip
-      @genre = f.read(TAGS[:genre]).strip
+      TAGS.each do |field, value| 
+        instance_variable_set("@#{field}", f.read(value).strip)
+      end
     end
   end
 end
 
-mp3 = MP3Info.new(ARGV[0])
-puts mp3.header
-puts mp3.title
-puts mp3.artist
-puts mp3.album
-puts mp3.year
-puts mp3.comment
-puts mp3.track
-puts mp3.genre
+class NoMusicFileProvided < StandardError; end
+
+if ARGV.empty?
+  raise NoMusicFileProvided.new "Please specify music file name"
+else
+  mp3info = MP3Info.new(ARGV.first)
+  MP3Info::TAGS.each_key { |field| puts "#{field} = #{mp3info.send(field)}"}
+end
